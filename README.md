@@ -1,72 +1,25 @@
 # appointment-no-show-analysis-databricks
 Healthcare analytics project analyzing patient appointment no-shows using Databricks SQL.
-%sql 
-SELECT 
-  COUNT(*) AS total_appointments,
-  SUM(no_show_flag) AS total_no_shows,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean;
 
-<img width="726" height="140" alt="image" src="https://github.com/user-attachments/assets/bccfdaa3-4d0a-45d5-8b00-cbc51392c119" />
+<img width="756" height="403" alt="image" src="https://github.com/user-attachments/assets/d32e8925-7272-4130-a7cd-ecd0a04153a9" />
 
 
-SELECT 
-  Gender,
-  COUNT(*) AS total_appts,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean
-GROUP BY Gender
-ORDER BY no_show_rate_percent DESC;
+<img width="625" height="383" alt="image" src="https://github.com/user-attachments/assets/6fdab8b4-fe1c-42e1-a487-ff1bf014ce15" />
 
-SELECT
-  CASE 
-    WHEN age < 18 THEN '0-17'
-    WHEN age BETWEEN 18 AND 35 THEN '18-35'
-    WHEN age BETWEEN 36 AND 55 THEN '36-55'
-    WHEN age BETWEEN 56 AND 75 THEN '56-75'
-    ELSE '75+'
-  END AS age_group,
-  COUNT(*) AS total_appts,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean
-GROUP BY age_group
-ORDER BY age_group;
 
-SELECT
-  sms_received,
-  COUNT(*) AS total_appts,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean
-GROUP BY sms_received;
+<img width="653" height="691" alt="image" src="https://github.com/user-attachments/assets/3a3085ac-905b-4164-b959-c9dddb803114" />
 
-SELECT
-  CASE 
-    WHEN wait_days <= 0 THEN '0 or less'
-    WHEN wait_days BETWEEN 1 AND 3 THEN '1-3 days'
-    WHEN wait_days BETWEEN 4 AND 7 THEN '4-7 days'
-    WHEN wait_days BETWEEN 8 AND 14 THEN '8-14 days'
-    WHEN wait_days BETWEEN 15 AND 30 THEN '15-30 days'
-    ELSE '30+ days'
-  END AS wait_bucket,
-  COUNT(*) AS total_appts,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean
-GROUP BY wait_bucket
-ORDER BY wait_bucket;
 
-SELECT
-  hypertension,
-  COUNT(*) AS total_appts,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean
-GROUP BY hypertension;
+<img width="677" height="412" alt="image" src="https://github.com/user-attachments/assets/49d6a00d-fb9e-4468-9eac-c3ee4126117c" />
 
-SELECT
-  Neighbourhood,
-  COUNT(*) AS total_appts,
-  ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
-FROM appointments_clean
-GROUP BY Neighbourhood
-HAVING COUNT(*) >= 100   -- only neighbourhoods with enough data
-ORDER BY no_show_rate_percent DESC
-LIMIT 15;
+
+<img width="682" height="712" alt="image" src="https://github.com/user-attachments/assets/80fc54bf-a8c6-424f-b00f-3e26577138fd" />
+
+
+<img width="677" height="415" alt="image" src="https://github.com/user-attachments/assets/634f1eab-1ca6-481f-b343-0282e92241f5" />
+
+
+<img width="718" height="677" alt="image" src="https://github.com/user-attachments/assets/973efd9f-6e5e-4952-bbf7-16a03c80a322" />
+
+
+
