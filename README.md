@@ -1,6 +1,76 @@
 # appointment-no-show-analysis-databricks
 Healthcare analytics project analyzing patient appointment no-shows using Databricks SQL.
 
+# 📊 Medical Appointment No-Show Analysis (Databricks SQL Project)
+
+This project analyzes factors that influence **patient appointment no-shows** using the popular _Medical Appointment No-Show Dataset_.
+
+The goal is to identify key drivers such as age, gender, SMS reminders, waiting time, and chronic conditions that contribute to missed appointments.
+
+---
+
+## 🚀 Project Overview
+
+### **Tools Used**
+- Databricks Community Edition  
+- Databricks SQL  
+- Spark SQL   
+- GitHub  
+
+### **Dataset**
+- Source: Kaggle Medical Appointment No Show Dataset  
+- Rows: 110K  
+- Columns: 14  
+- Target: `No-show` (Yes/No) → converted into numeric `NoShowFlag`  
+
+---
+
+## 🧼 Data Cleaning & Feature Engineering
+
+### ✔ Converted timestamps  
+- `ScheduledDay` → scheduled_date  
+- `AppointmentDay` → appointment_date  
+
+### ✔ Calculated new features  
+- `wait_days` = days between scheduled & appointment date  
+- `NoShowFlag` =  
+  - 1 if `No-show` = "Yes"  
+  - 0 if `No-show` = "No"  
+
+### ✔ Fixed invalid values  
+- Removed negative `Age` records
+
+---
+
+## 🔍 Exploratory Data Analysis (EDA)
+
+### Key Questions Answered:
+- Which gender misses more appointments?  
+- Do SMS reminders reduce no-shows?  
+- Which age groups miss the most appointments?  
+- Which neighbourhoods have the highest no-show rates?  
+- How does waiting time affect the chance of no-shows?  
+
+### Example SQL Query
+
+```sql
+SELECT
+  CASE 
+    WHEN `No-show` = 'Yes' THEN 1
+    ELSE 0
+  END AS NoShowFlag,
+  Gender,
+  Age,
+  Neighbourhood,
+  Scholarship,
+  Hypertension,
+  Diabetes,
+  Alcoholism,
+  Handicap,
+  SMS_received
+FROM no_show_data_appointments;
+
+
 <img width="756" height="403" alt="image" src="https://github.com/user-attachments/assets/d32e8925-7272-4130-a7cd-ecd0a04153a9" />
 
 
