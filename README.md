@@ -1,6 +1,3 @@
-# appointment-no-show-analysis-databricks
-Healthcare analytics project analyzing patient appointment no-shows using Databricks SQL.
-
 # 📊 Medical Appointment No-Show Analysis (Databricks SQL Project)
 
 This project analyzes factors that influence **patient appointment no-shows** using the popular _Medical Appointment No-Show Dataset_.
