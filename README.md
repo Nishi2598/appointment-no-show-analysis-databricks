@@ -46,26 +46,9 @@ The goal is to identify key drivers such as age, gender, SMS reminders, waiting 
 - Do SMS reminders reduce no-shows?  
 - Which age groups miss the most appointments?  
 - Which neighbourhoods have the highest no-show rates?  
-- How does waiting time affect the chance of no-shows?  
+- How does waiting time affect the chance of no-shows?
 
-### Example SQL Query
-
-```sql
-SELECT
-  CASE 
-    WHEN `No-show` = 'Yes' THEN 1
-    ELSE 0
-  END AS NoShowFlag,
-  Gender,
-  Age,
-  Neighbourhood,
-  Scholarship,
-  Hypertension,
-  Diabetes,
-  Alcoholism,
-  Handicap,
-  SMS_received
-FROM no_show_data_appointments;
+###SQL queries and results: 
 
 
 <img width="756" height="403" alt="image" src="https://github.com/user-attachments/assets/d32e8925-7272-4130-a7cd-ecd0a04153a9" />
