@@ -7,6 +7,9 @@ SELECT
   ROUND(100.0 * AVG(no_show_flag), 2) AS no_show_rate_percent
 FROM appointments_clean;
 
+<img width="726" height="140" alt="image" src="https://github.com/user-attachments/assets/bccfdaa3-4d0a-45d5-8b00-cbc51392c119" />
+
+
 SELECT 
   Gender,
   COUNT(*) AS total_appts,
